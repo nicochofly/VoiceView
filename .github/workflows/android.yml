@@ -85,7 +85,6 @@ jobs:
 #       with:
 #         ruby-version: 2.6.5
 #         files: app/build/outputs/apk/release/app-release.apk
-    - name: Ruby install
     - uses: actions/cache@preview
       id: cache
       with:
