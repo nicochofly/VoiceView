@@ -31,8 +31,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview
-        release_name: Release voiceview
+        tag_name: voiceview1
+        release_name: Release voiceview1
 #         ${{ github.ref }}
         draft: false
         prerelease: false
