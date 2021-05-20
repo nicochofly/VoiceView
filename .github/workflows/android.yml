@@ -31,8 +31,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview6
-        release_name: Release voiceview6
+        tag_name: voiceview7
+        release_name: Release voiceview7
 #         ${{ github.ref }}
         draft: false
         prerelease: false
@@ -91,10 +91,10 @@ jobs:
         path: ~/local/rubies
         key: ruby-2.6.5    
         
-    - name: Print version
-      run: ${{ steps.ruby.outputs.ruby-path }} --version
-    - name: Print version
-      run: ${{ steps.ruby.outputs.ruby-path }} --version   
+#     - name: Print version
+#       run: ${{ steps.ruby.outputs.ruby-path }} --version
+#     - name: Print version
+#       run: ${{ steps.ruby.outputs.ruby-path }} --version   
 #     - uses: clupprich/ruby-build-action@master
 #       id: ruby
 #       with:
