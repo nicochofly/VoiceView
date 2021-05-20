@@ -90,7 +90,7 @@ jobs:
       with:
         path: ~/local/rubies
         key: ruby-2.6.5    
-        
+        files: app/build/outputs/apk/release/app-release.apk
 #     - name: Print version
 #       run: ${{ steps.ruby.outputs.ruby-path }} --version
 #     - name: Print version
@@ -112,4 +112,4 @@ jobs:
     - name: Upload to Fir.im
       run: fir login ${{ secrets.FIRTOKEN }}
     #- run: cd ~
-    - run: fir publish  /home/runner/work/VoiceView/app/build/outputs/apk/release/app-release.apk
+    - run: fir publish  app/build/outputs/apk/release/app-release.apk
