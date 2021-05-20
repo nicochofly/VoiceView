@@ -94,7 +94,7 @@ jobs:
       id: ruby
       with:
         ruby-version: 2.6.5
-        files: app/build/outputs/apk/release/app-release.apk
+       # files: app/build/outputs/apk/release/app-release.apk
     - name: Print version
       run: ${{ steps.ruby.outputs.ruby-path }} --version
     - name: install fir.im
