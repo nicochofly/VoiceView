@@ -31,8 +31,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview5
-        release_name: Release voiceview5
+        tag_name: voiceview6
+        release_name: Release voiceview6
 #         ${{ github.ref }}
         draft: false
         prerelease: false
@@ -90,6 +90,11 @@ jobs:
       with:
         path: ~/local/rubies
         key: ruby-2.6.5    
+        
+   - name: Print version
+      run: ${{ steps.ruby.outputs.ruby-path }} --version
+    - name: Print version
+      run: ${{ steps.ruby.outputs.ruby-path }} --version   
 #     - uses: clupprich/ruby-build-action@master
 #       id: ruby
 #       with:
@@ -101,10 +106,7 @@ jobs:
 #       id: ruby
 #       with:
 #         ruby-version: 2.6.5
-#     - name: Print version
-#       run: ${{ steps.ruby.outputs.ruby-path }} --version
-#     - name: Print version
-#       run: ${{ steps.ruby.outputs.ruby-path }} --version
+
     - name: install fir.im
       run: gem install fir-cli
     - name: Upload to Fir.im
