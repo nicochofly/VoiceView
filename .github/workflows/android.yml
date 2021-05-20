@@ -46,6 +46,7 @@ jobs:
 #           name: app
 #           path: app/build/outputs/apk/release/app-release.apk
 
+    
     # 获取apk版本号
     - name: Get Version Name
       uses: actions/github-script@v3
@@ -74,18 +75,18 @@ jobs:
        path: app/build/outputs #将打包之后的文件全部上传（里面会有混淆的map文件）
         
         
-#     - uses: actions/cache@preview
-#       id: cache
-#       with:
-#         path: ~/local/rubies
-#         key: ruby-2.6.5    
-#     - uses: clupprich/ruby-build-action@master
-#       id: ruby
-#       with:
-#         ruby-version: 2.6.5
-# #         files: app/build/outputs/apk/release/app-release.apk
-#     - name: install fir.im
-#       run: gem install fir-cli
-#     - name: Upload to Fir.im
-#       run: fir login ${{ secrets.FIRTOKEN }}
-#     - run: fir publish app/build/outputs/apk/release/app-release.apk
+    - uses: actions/cache@preview
+      id: cache
+      with:
+        path: ~/local/rubies
+        key: ruby-2.6.5    
+    - uses: clupprich/ruby-build-action@master
+      id: ruby
+      with:
+        ruby-version: 2.6.5
+#         files: app/build/outputs/apk/release/app-release.apk
+    - name: install fir.im
+      run: gem install fir-cli
+    - name: Upload to Fir.im
+      run: fir login ${{ secrets.FIRTOKEN }}
+    - run: fir publish app/build/outputs/apk/release/app-release.apk
