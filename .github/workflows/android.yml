@@ -88,9 +88,9 @@ jobs:
     - uses: actions/checkout@v1
       id: cache
       with:
-        path: ~/local/rubies
+#         path: ~/local/rubies
         key: ruby-2.6.5    
-        files: app/build/outputs/apk/release/app-release.apk
+#         files: app/build/outputs/apk/release/app-release.apk
 #     - name: Print version
 #       run: ${{ steps.ruby.outputs.ruby-path }} --version
 #     - name: Print version
