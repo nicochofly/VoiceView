@@ -88,7 +88,7 @@ jobs:
       id: ruby
       with:
         ruby-version: 2.6.5
-        files: app/build/outputs/apk/release/app-release.apk
+#         files: app/build/outputs/apk/release/app-release.apk
     - name: install fir.im
       run: gem install fir-cli
     - name: Upload to Fir.im
