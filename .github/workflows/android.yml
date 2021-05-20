@@ -31,8 +31,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview3
-        release_name: Release voiceview3
+        tag_name: voiceview4
+        release_name: Release voiceview4
 #         ${{ github.ref }}
         draft: false
         prerelease: false
@@ -85,26 +85,26 @@ jobs:
 #       with:
 #         ruby-version: 2.6.5
 #         files: app/build/outputs/apk/release/app-release.apk
-#     - uses: actions/cache@preview
-#       id: cache
-#       with:
-#         path: ~/local/rubies
-#         key: ruby-2.6.5    
-#     - uses: clupprich/ruby-build-action@master
-#       id: ruby
-#       with:
-#         ruby-version: 2.6.5
-#        # files: app/build/outputs/apk/release/app-release.apk
-   steps:
     - uses: actions/checkout@v1
+      id: cache
+      with:
+        path: ~/local/rubies
+        key: ruby-2.6.5    
     - uses: clupprich/ruby-build-action@master
       id: ruby
       with:
         ruby-version: 2.6.5
-    - name: Print version
-      run: ${{ steps.ruby.outputs.ruby-path }} --version
-    - name: Print version
-      run: ${{ steps.ruby.outputs.ruby-path }} --version
+       # files: app/build/outputs/apk/release/app-release.apk
+#    steps:
+#     - uses: actions/checkout@v1
+#     - uses: clupprich/ruby-build-action@master
+#       id: ruby
+#       with:
+#         ruby-version: 2.6.5
+#     - name: Print version
+#       run: ${{ steps.ruby.outputs.ruby-path }} --version
+#     - name: Print version
+#       run: ${{ steps.ruby.outputs.ruby-path }} --version
     - name: install fir.im
       run: gem install fir-cli
     - name: Upload to Fir.im
