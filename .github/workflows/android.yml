@@ -75,16 +75,25 @@ jobs:
        path: app/build/outputs #将打包之后的文件全部上传（里面会有混淆的map文件）
         
         
-    - uses: actions/cache@preview
-      id: cache
-      with:
-        path: ~/local/rubies
-        key: ruby-2.6.5    
+#     - uses: actions/cache@preview
+#       id: cache
+#       with:
+#         path: ~/local/rubies
+#         key: ruby-2.6.5    
+#     - uses: clupprich/ruby-build-action@master
+#       id: ruby
+#       with:
+#         ruby-version: 2.6.5
+#         files: app/build/outputs/apk/release/app-release.apk
+    - name: install of Ruby 2.6.5
+
+    - uses: actions/checkout@v1
     - uses: clupprich/ruby-build-action@master
       id: ruby
       with:
         ruby-version: 2.6.5
-#         files: app/build/outputs/apk/release/app-release.apk
+    - name: Print version
+      run: ${{ steps.ruby.outputs.ruby-path }} --version
     - name: install fir.im
       run: gem install fir-cli
     - name: Upload to Fir.im
