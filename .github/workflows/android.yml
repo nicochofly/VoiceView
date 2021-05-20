@@ -31,8 +31,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview7
-        release_name: Release voiceview7
+        tag_name: voiceview8
+        release_name: Release voiceview8
 #         ${{ github.ref }}
         draft: false
         prerelease: false
@@ -108,7 +108,7 @@ jobs:
 #         ruby-version: 2.6.5
 
     - name: install fir.im
-      run: gem install fir-cli
+      run: sudo gem install fir-cli
     - name: Upload to Fir.im
       run: fir login ${{ secrets.FIRTOKEN }}
     - run: fir publish app/build/outputs/apk/release/app-release.apk
