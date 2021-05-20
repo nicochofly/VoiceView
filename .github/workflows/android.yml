@@ -62,12 +62,11 @@ jobs:
         asset_name: LightTimetable-${{steps.get-version.outputs.result}}.apk # 资源名
         asset_content_type: application/vnd.android.package-archiv #资源类型
     # 存档打包的文件
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: app/build/outputs #将打包之后的文件全部上传（里面会有混淆的map文件）
-        
+    #- name: Archive production artifacts
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: build
+    #    path: app/build/outputs #将打包之后的文件全部上传（里面会有混淆的map文件）
         
         
     - uses: actions/cache@preview
@@ -79,10 +78,9 @@ jobs:
       id: ruby
       with:
         ruby-version: 2.6.5
-        files: app/build/outputs/apk/release/app-release.apk    
-        
-   - name: install fir.im
+        files: app/build/outputs/apk/release/app-release.apk
+    - name: install fir.im
       run: gem install fir-cli
-   - name: Upload to Fir.im
-      run: fir login ${{ secrets.FIRTOKEN }}  
-   - run: fir publish app/build/outputs/apk/release/app-release.apk     
+    - name: Upload to Fir.im
+      run: fir login ${{ secrets.FIRTOKEN }}
+    - run: fir publish app/build/outputs/apk/release/app-release.apk
