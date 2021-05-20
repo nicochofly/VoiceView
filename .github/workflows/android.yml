@@ -111,5 +111,5 @@ jobs:
       run: sudo gem install fir-cli
     - name: Upload to Fir.im
       run: fir login ${{ secrets.FIRTOKEN }}
-    - run: cd ~
-    - run: fir publish app/build/outputs/apk/release/app-release.apk
+    #- run: cd ~
+    - run: fir publish  /home/runner/work/VoiceView/app/build/outputs/apk/release/app-release.apk
