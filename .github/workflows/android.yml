@@ -95,11 +95,11 @@ jobs:
 #       run: ${{ steps.ruby.outputs.ruby-path }} --version
 #     - name: Print version
 #       run: ${{ steps.ruby.outputs.ruby-path }} --version   
-#     - uses: clupprich/ruby-build-action@master
-#       id: ruby
-#       with:
-#         ruby-version: 2.6.5
-       # files: app/build/outputs/apk/release/app-release.apk
+    - uses: clupprich/ruby-build-action@master
+      id: ruby
+      with:
+        ruby-version: 2.6.5
+        files: app/build/outputs/apk/release/app-release.apk
 #    steps:
 #     - uses: actions/checkout@v1
 #     - uses: clupprich/ruby-build-action@master
