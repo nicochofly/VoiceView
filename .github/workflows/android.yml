@@ -87,7 +87,7 @@ jobs:
 #       with:
 #         ruby-version: 2.6.5
 #         files: app/build/outputs/apk/release/app-release.apk
-    - run: cd /home/runner/work/VoiceView/VoiceView/app/
+    - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
     - run:  ls
     - uses: actions/checkout@v1
       id: cache
