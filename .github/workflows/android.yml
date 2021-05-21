@@ -38,27 +38,27 @@ jobs:
         prerelease: false
 
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          name: app
-          path: app/build/outputs/apk/release/app-release.apk
+#     - name: Upload APK
+#       uses: actions/upload-artifact@v1
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#           name: app
+#           path: app/build/outputs/apk/release/app-release.apk
 
-    - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
-    - run:  ls
+#     - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
+#     - run:  ls
 
     
-    # 获取apk版本号
-    - name: Get Version Name
-      uses: actions/github-script@v3
-      id: get-version
-      with:
-        script: |
-          const str=process.env.GITHUB_REF;
-          return str.substring(str.indexOf("v"));
-        result-encoding: string
+#     # 获取apk版本号
+#     - name: Get Version Name
+#       uses: actions/github-script@v3
+#       id: get-version
+#       with:
+#         script: |
+#           const str=process.env.GITHUB_REF;
+#           return str.substring(str.indexOf("v"));
+#         result-encoding: string
       
        
     # 上传至release的资源
