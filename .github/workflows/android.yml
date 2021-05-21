@@ -93,8 +93,8 @@ jobs:
         files: app/build/outputs/apk/release/app-release.apk
 
     - name: showfiles
-      run: 
-#        cd /home/runner/work/VoiceView/VoiceView~/local/rubiesapp/build/outputs/apk/release/
+      run: |  
+        cd /home/runner/work/VoiceView/~/local/rubies/
         ls
 
 #     - uses: actions/checkout@v1
