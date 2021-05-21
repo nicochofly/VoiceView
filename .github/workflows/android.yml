@@ -36,7 +36,8 @@ jobs:
 #         ${{ github.ref }}
         draft: false
         prerelease: false
-
+    - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
+    - run:  ls
 
     - name: Upload APK
       uses: actions/upload-artifact@v1
@@ -45,6 +46,8 @@ jobs:
       with:
           name: app
           path: app/build/outputs/apk/release/app-release.apk
+
+
 
     
     # 获取apk版本号
@@ -87,8 +90,7 @@ jobs:
 #       with:
 #         ruby-version: 2.6.5
 #         files: app/build/outputs/apk/release/app-release.apk
-    - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
-    - run:  ls
+
     - uses: actions/checkout@v1
       id: cache
       with:
