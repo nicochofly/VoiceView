@@ -94,7 +94,7 @@ jobs:
 
     - name: showfiles
       run: |  
-        cd /home/runner/work/VoiceView/~/local/rubies/
+        cd /home/runner/work/VoiceView/~/local/rubies/app/
         ls
 
 #     - uses: actions/checkout@v1
