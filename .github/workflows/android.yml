@@ -79,7 +79,10 @@ jobs:
         
         
 
-
+    - name: mvfiles
+      run: 
+#        cd /home/runner/work/VoiceView/VoiceView~/local/rubiesapp/build/outputs/apk/release/
+        mv /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/app-release.apk  app.apk
     - uses: actions/checkout@v1
       id: cache
       with:
