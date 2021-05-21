@@ -23,6 +23,19 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleRelease
+      
+      
+      
+      # 获取apk版本号
+    - name: Get Version Name
+      uses: actions/github-script@v3
+      id: get-version
+      with:
+        script: |
+          const str=process.env.GITHUB_REF;
+          return str.substring(str.indexOf("v"));
+        result-encoding: string
+      
    # 创建release
     - name: Create Release
       id: create_release
@@ -31,8 +44,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       with:
-        tag_name: voiceview8
-        release_name: Release voiceview8
+        tag_name: ${{steps.get-version.outputs.result}}
+        release_name: Release ${{steps.get-version.outputs.result}}
 #         ${{ github.ref }}
         draft: false
         prerelease: false
@@ -48,15 +61,7 @@ jobs:
 
 
     
-#     # 获取apk版本号
-#     - name: Get Version Name
-#       uses: actions/github-script@v3
-#       id: get-version
-#       with:
-#         script: |
-#           const str=process.env.GITHUB_REF;
-#           return str.substring(str.indexOf("v"));
-#         result-encoding: string
+
       
        
     # 上传至release的资源
@@ -131,9 +136,9 @@ jobs:
 
 
 
-    - name: install fir.im
-      run: sudo gem install fir-cli
-    - name: Upload to Fir.im
-      run: fir login ${{ secrets.FIRTOKEN }}
-    #- run: cd ~
-    - run: fir publish  app/build/outputs/apk/release/app-release.apk
+#     - name: install fir.im
+#       run: sudo gem install fir-cli
+#     - name: Upload to Fir.im
+#       run: fir login ${{ secrets.FIRTOKEN }}
+#     #- run: cd ~
+#     - run: fir publish  app/build/outputs/apk/release/app-release.apk
