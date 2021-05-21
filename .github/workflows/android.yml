@@ -30,12 +30,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#       with:
-#         tag_name: voiceview8
-#         release_name: Release voiceview8
-# #         ${{ github.ref }}
-#         draft: false
-#         prerelease: false
+      with:
+        tag_name: voiceview8
+        release_name: Release voiceview8
+#         ${{ github.ref }}
+        draft: false
+        prerelease: false
 
 
 #     - name: Upload APK
