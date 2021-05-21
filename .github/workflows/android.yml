@@ -56,6 +56,8 @@ jobs:
           const str=process.env.GITHUB_REF;
           return str.substring(str.indexOf("v"));
         result-encoding: string
+      
+       
     # 上传至release的资源
 #     - name: Upload Release Asset
 #       id: upload-release-asset 
@@ -85,6 +87,8 @@ jobs:
 #       with:
 #         ruby-version: 2.6.5
 #         files: app/build/outputs/apk/release/app-release.apk
+    - run: cd /home/runner/work/VoiceView/VoiceView/app/
+    - run:  ll -a
     - uses: actions/checkout@v1
       id: cache
       with:
