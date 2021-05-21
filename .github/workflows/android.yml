@@ -45,10 +45,7 @@ jobs:
 #       with:
 #           name: app
 #           path: app/build/outputs/apk/release/app-release.apk
-    - name: showfiles
-      run: | 
-        cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
-        ls
+
 
     
 #     # 获取apk版本号
@@ -83,14 +80,17 @@ jobs:
         
 
 
-#     - uses: actions/checkout@v1
-#       id: cache
-#       with:
-#         path: ~/local/rubies
-#         key: ruby-2.6.5    
-#         files: app/build/outputs/apk/release/app-release.apk
+    - uses: actions/checkout@v1
+      id: cache
+      with:
+        path: ~/local/rubies
+        key: ruby-2.6.5    
+        files: app/build/outputs/apk/release/app-release.apk
 
-
+    - name: showfiles
+      run: 
+#        cd /home/runner/work/VoiceView/VoiceView~/local/rubiesapp/build/outputs/apk/release/
+        ls
 
 #     - uses: actions/checkout@v1
 #     - uses: actions/cache@preview
@@ -108,16 +108,16 @@ jobs:
 
 
 
-    - uses: actions/cache@preview
-      id: cache
-      with:
-            path: ~/local/rubies
-            key: ruby-2.6.5    
-    - uses: clupprich/ruby-build-action@master
-      id: ruby
-      with:
-            ruby-version: 2.6.5
-            files: app/build/outputs/apk/release/app-release.apk
+#     - uses: actions/cache@preview
+#       id: cache
+#       with:
+#             path: ~/local/rubies
+#             key: ruby-2.6.5    
+#     - uses: clupprich/ruby-build-action@master
+#       id: ruby
+#       with:
+#             ruby-version: 2.6.5
+#             files: app/build/outputs/apk/release/app-release.apk
 
 
 
