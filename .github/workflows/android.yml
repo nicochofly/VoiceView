@@ -89,8 +89,10 @@ jobs:
       id: cache
       with:
         path: ~/local/rubies
-        key: ruby-2.6.5    
-        files: app/build/outputs/apk/release/app-release.apk
+        key: ruby-2.6.5
+        clean: false
+        #files: app/build/outputs/apk/release/app-release.apk
+        
 
     - name: showfiles
       run: |  
