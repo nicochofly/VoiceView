@@ -1,0 +1,123 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+
+    - name: show result
+    - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
+    - run:  ls
+#     - name: Grant execute permission for gradlew
+#       run: chmod +x gradlew
+#     - name: Build with Gradle
+#       run: ./gradlew assembleRelease
+#    # 创建release
+#     - name: Create Release
+#       id: create_release
+#       uses: actions/create-release@v1
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#       with:
+#         tag_name: voiceview8
+#         release_name: Release voiceview8
+# #         ${{ github.ref }}
+#         draft: false
+#         prerelease: false
+
+
+#     - name: Upload APK
+#       uses: actions/upload-artifact@v1
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#           name: app
+#           path: app/build/outputs/apk/release/app-release.apk
+
+    
+#     # 获取apk版本号
+#     - name: Get Version Name
+#       uses: actions/github-script@v3
+#       id: get-version
+#       with:
+#         script: |
+#           const str=process.env.GITHUB_REF;
+#           return str.substring(str.indexOf("v"));
+#         result-encoding: string
+      
+       
+#     # 上传至release的资源
+# #     - name: Upload Release Asset
+# #       id: upload-release-asset 
+# #       uses: actions/upload-release-asset@v1
+# #       env:
+# #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# #       with:
+# #         upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+# #         asset_path: app/build/outputs/apk/release/app-release.apk # 上传路径
+# #         asset_name: voiceview-${{steps.get-version.outputs.result}}.apk # 资源名
+# #         asset_content_type: application/vnd.android.package-archiv #资源类型
+# #     # 存档打包的文件
+# #     - name: Archive production artifacts
+# #       uses: actions/upload-artifact@v2
+# #       with:
+# #        name: build
+# #        path: app/build/outputs #将打包之后的文件全部上传（里面会有混淆的map文件）
+        
+        
+# #     - uses: actions/cache@preview
+# #       id: cache
+# #       with:
+# #         path: ~/local/rubies
+# #         key: ruby-2.6.5    
+# #     - uses: clupprich/ruby-build-action@master
+# #       id: ruby
+# #       with:
+# #         ruby-version: 2.6.5
+# #         files: app/build/outputs/apk/release/app-release.apk
+#     - run: cd /home/runner/work/VoiceView/VoiceView/app/build/outputs/apk/release/
+#     - run:  ls
+#     - uses: actions/checkout@v1
+#       id: cache
+#       with:
+# #         path: ~/local/rubies
+#         key: ruby-2.6.5    
+# #         files: app/build/outputs/apk/release/app-release.apk
+# #     - name: Print version
+# #       run: ${{ steps.ruby.outputs.ruby-path }} --version
+# #     - name: Print version
+# #       run: ${{ steps.ruby.outputs.ruby-path }} --version   
+# #     - uses: clupprich/ruby-build-action@master
+# #       id: ruby
+# #       with:
+# #         ruby-version: 2.6.5  
+# #         files: app/build/outputs/apk/release/app-release.apk
+# #    steps:
+# #     - uses: actions/checkout@v1
+# #     - uses: clupprich/ruby-build-action@master
+# #       id: ruby
+# #       with:
+# #         ruby-version: 2.6.5
+
+#     - name: install fir.im
+#       run: sudo gem install fir-cli
+#     - name: Upload to Fir.im
+#       run: fir login ${{ secrets.FIRTOKEN }}
+#     #- run: cd ~
+#     - run: fir publish  app/build/outputs/apk/release/app-release.apk
